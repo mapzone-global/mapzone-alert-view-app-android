@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Compose drives all theming/colors; the activity only needs a no-action-bar shell. -->
+    <style name="Theme.MapZoneAlertView" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>
