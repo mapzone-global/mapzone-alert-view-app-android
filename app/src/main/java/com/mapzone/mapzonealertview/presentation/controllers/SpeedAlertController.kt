@@ -58,7 +58,6 @@ class SpeedAlertController(@Suppress("unused") private val context: Context) {
             AppConfig.BASE_URL,
             AppConfig.SPEED_ALERT_API_KEY_ID,
             AppConfig.SPEED_ALERT_API_KEY,
-            AppConfig.APP_BUNDLE_ID,
             AppConfig.VEHICLE_ID,
             profile.resolveVehicleType(),
             profile.seats,

@@ -23,7 +23,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.mapzone.mapzonealertview"
+        applicationId = "com.mapzone.AlertViewApp"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
