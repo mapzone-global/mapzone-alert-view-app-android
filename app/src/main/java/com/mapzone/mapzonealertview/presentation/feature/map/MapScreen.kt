@@ -28,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -75,6 +76,7 @@ fun MapScreen(
     speedAlert: SpeedAlertController,
 ) {
     val context = LocalContext.current
+    val currentView = LocalView.current
     val scope = rememberCoroutineScope()
     val focusManager = LocalFocusManager.current
     val searchVm: SearchViewModel = viewModel()
@@ -101,6 +103,11 @@ fun MapScreen(
             routeRenderer = null
             symbolManager = null
         }
+    }
+
+    DisposableEffect(navState.isNavigating) {
+        currentView.keepScreenOn = navState.isNavigating
+        onDispose { currentView.keepScreenOn = false }
     }
 
     LaunchedEffect(navState.lastLocation) {
