@@ -375,7 +375,7 @@ fun MapScreen(
                     apikey = AppConfig.VIETMAP_API_KEY,
                     origin = origin,
                     destination = destination,
-                    profile = DirectionsCriteria.PROFILE_DRIVING_TRAFFIC,
+                    profile = vehicleProfile.type.routingProfile,
                 ) { route ->
                     if (route != null) {
                         symbolManager?.deleteAll()
@@ -412,6 +412,9 @@ fun MapScreen(
             onConfirm = { result ->
                 val profileChanged = result.profile != vehicleProfile
                 vehicleProfile = result.profile
+                if (profileChanged) {
+                    navController.changeProfile(result.profile.type.routingProfile)
+                }
                 navController.setSimulator(result.simulatorEnabled)
                 navController.setSimulatorSpeed(result.simulatorSpeed)
                 showSettingsDialog = false

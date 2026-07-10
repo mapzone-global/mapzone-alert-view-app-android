@@ -9,7 +9,6 @@ object AppConfig {
     const val SEGMENT_URL: String = BuildConfig.SEGMENT_URL
     const val SPEED_ALERT_API_KEY_ID: String = BuildConfig.SPEED_ALERT_API_KEY_ID
     const val SPEED_ALERT_API_KEY: String = BuildConfig.SPEED_ALERT_API_KEY
-    const val APP_BUNDLE_ID: String = BuildConfig.APP_BUNDLE_ID
     const val VEHICLE_ID: String = BuildConfig.VEHICLE_ID
 
     var styleUrl: String = "https://maps.vietmap.vn/maps/styles/dm/style.json?apikey=$VIETMAP_TILEMAP_KEY"

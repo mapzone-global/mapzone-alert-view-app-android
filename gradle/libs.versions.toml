@@ -24,7 +24,7 @@ vietmapServicesDirections = "1.0.1"
 vietmapServicesTurf = "1.0.2"
 vietmapServices = "1.1.2"
 vietmapServicesGeojson = "1.0.0"
-alertViewSdk = "0.0.2"
+alertViewSdk = "0.0.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }

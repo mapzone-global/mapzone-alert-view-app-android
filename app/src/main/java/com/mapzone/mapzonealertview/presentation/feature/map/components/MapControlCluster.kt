@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.VolumeOff
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
+import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Report
 import androidx.compose.material.icons.filled.Settings
@@ -66,7 +67,7 @@ fun MapControlCluster(
                 contentColor = MaterialTheme.colorScheme.onSurface,
                 elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 4.dp),
             ) {
-                Icon(Icons.Default.Report, contentDescription = "Chụp report")
+                Icon(Icons.Default.CameraAlt, contentDescription = "Chụp report")
             }
         }
         AnimatedVisibility(

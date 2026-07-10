@@ -57,6 +57,10 @@ class NavigationController(
     private var lastApikey: String? = null
     private var lastProfile: String = DirectionsCriteria.PROFILE_DRIVING_TRAFFIC
 
+    fun changeProfile(profile: String) {
+        lastProfile = profile;
+    }
+
     private var isRerouting: Boolean = false
 
     private val options: VietmapNavigationOptions = VietmapNavigationOptions.builder()
@@ -104,7 +108,7 @@ class NavigationController(
         apikey: String,
         origin: Point,
         destination: Point,
-        profile: String = DirectionsCriteria.PROFILE_DRIVING_TRAFFIC,
+        profile: String,
         bearing: Double? = null,
         onResult: (DirectionsRoute?) -> Unit,
     ) {

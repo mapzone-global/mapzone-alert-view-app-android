@@ -1,4 +1,6 @@
 # Mapzone Alert View App
+Note: Contact to [Vietmap](https://zalo.me/3189066936017422854) support if you need Vietmap API credentials.
+
 ## Table of contents
 
 - [Install](#install)
@@ -77,13 +79,17 @@ manager.configure(
         baseUrl,        // String  — Vietmap service base URL
         apiKeyId,       // String  — your API key id
         apiKey,         // String  — your API key secret
-        bundleId,       // String  — your app bundle / application id
         vehicleId,      // String  — your vehicle id
         vehicleType,    // int     — 1..9 (see Vehicle types)
         seats,          // int     — seats for coaches; 0 = default for the type
         weights,        // double  — gross weight (tonnes) for trucks; 0 = default
         maxSnapMeters); // double  — max snap distance (m); <= 0 = server default (~25 m)
 ```
+
+> **Since 0.0.3:** the SDK no longer takes a `bundleId` parameter — it reads
+> your app's package name (`applicationId`) itself. Make sure the
+> `applicationId`/package name registered for your API key on the Vietmap
+> console matches the one your app ships with.
 
 Optional configuration (call after `configure`, before `start`):
 
@@ -185,7 +191,7 @@ manager.setResultCallback((success, errorCode, errorMessage) -> {
 | Result callback `errorCode 3003` | Bad `vehicleType` | Pass a value in **1..9** (see vehicle types). |
 | Result callback `errorCode 3004` | Route did not map-match | Verify the polyline is a real road route; check the encoding precision is `1e6`. |
 | Result callback `errorCode 2000` | Device clock is off | The auth uses a server timestamp window (±10 s) — sync the device clock. |
-| Result callback `errorCode 2002` | Wrong API key / secret | Re-check `apiKeyId` / `apiKey` (and `bundleId`) passed to `configure`. |
+| Result callback `errorCode 2002` | Wrong API key / secret | Re-check `apiKeyId` / `apiKey` passed to `configure`, and confirm your app's package name matches the one registered for the key (bundle id is now read automatically). |
 | Result callback `errorCode < 0` | Local network / parse failure | Check connectivity, `baseUrl`, and the `INTERNET` permission; read `errorMessage`. |
 | Speed shows wrong/zero limit | The link has no declared limit for this vehicle | `speed = 0` means "no declared limit" for that vehicle type — render it as unknown, not as 0 km/h. |
 | Voice never plays | A `VoiceCallback` is registered but does nothing | Either implement playback in your callback, or **don't** register one and let the SDK's built-in player handle it. |
@@ -200,6 +206,6 @@ manager.setResultCallback((success, errorCode, errorMessage) -> {
 
 ## Contact & support
 [<img src="https://bizweb.dktcdn.net/100/415/690/themes/804206/assets/logo.png?1689561872933" height="40"/> </p>](https://maps.vietmap.vn/)
-- [Homepage](https://maps.vietmap.vn/)
+- [Website](https://maps.vietmap.vn/)
 - [Documentation](https://maps.vietmap.vn/docs/)
 - [Zalo OA](https://zalo.me/3189066936017422854)

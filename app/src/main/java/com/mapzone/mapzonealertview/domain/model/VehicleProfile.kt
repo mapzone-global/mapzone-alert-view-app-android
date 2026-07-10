@@ -1,10 +1,10 @@
 package com.mapzone.mapzonealertview.domain.model
 
 enum class VehicleType(val label: String, val routingProfile: String) {
-    CAR("Ô tô", "car"),
+    CAR("Ô tô", "driving-traffic"),
     MOTORCYCLE("Xe máy", "motorcycle"),
-    TRUCK("Xe tải", "truck"),
-    BIKE("Xe đạp", "bike");
+    TRUCK("Xe tải", "driving-traffic"),
+    BIKE("Xe đạp", "cycling");
 }
 
 data class VehicleProfile(
